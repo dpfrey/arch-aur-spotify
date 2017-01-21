@@ -6,7 +6,7 @@ pkgver=1.0.47.13
 _anotherpkgver=.gd8e05b1f
 _amd64_pkgrel=47
 _i386_pkgrel=16
-pkgrel=1
+pkgrel=2
 pkgdesc="A proprietary music streaming service"
 arch=('x86_64' 'i686')
 license=('custom:"Copyright (c) 2006-2010 Spotify Ltd"')
@@ -36,11 +36,11 @@ package() {
 
 	tar -xzf data.tar.gz -C "${pkgdir}"
 
-	install -D "${pkgdir}"/usr/share/spotify/spotify.desktop "${pkgdir}"/usr/share/applications/spotify.desktop
-	install -D "${pkgdir}"/usr/share/spotify/icons/spotify-linux-512.png "${pkgdir}"/usr/share/pixmaps/spotify-client.png
+	install -D -m644 "${pkgdir}"/usr/share/spotify/spotify.desktop "${pkgdir}"/usr/share/applications/spotify.desktop
+	install -D -m644 "${pkgdir}"/usr/share/spotify/icons/spotify-linux-512.png "${pkgdir}"/usr/share/pixmaps/spotify-client.png
 
 	for size in 22 24 32 48 64 128 256 512; do
-		install -D "${pkgdir}/usr/share/spotify/icons/spotify-linux-$size.png" \
+		install -D -m644 "${pkgdir}/usr/share/spotify/icons/spotify-linux-$size.png" \
 			"${pkgdir}/usr/share/icons/hicolor/${size}x${size}/apps/spotify.png"
 	done
 
